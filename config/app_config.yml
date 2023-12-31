@@ -1,0 +1,24 @@
+---
+DBConfig:
+  ConnectionString: "postgresql://<username>:<password>@localhost:5432/booking_db?sslmode=disable"
+  AdminUserName: "admin"
+  AdminUserPassword: "admin"
+  PermissionAll: "all"
+  PermissionGet: "get"
+  PermissionCreate: "create"
+  PermissionUpdate: "update"
+  PermissionDelete: "delete"
+VaultConfig:
+  ServerAddress: "http://localhost:8200"
+  CredentialsBasePath: "database/creds"
+  Permissions:
+    - Permission: "get"
+      CredentialName: "db_read"
+    - Permission: "create"
+      CredentialName: "db_create"
+    - Permission: "update"
+      CredentialName: "db_update"
+    - Permission: "delete"
+      CredentialName: "db_delete"
+    - Permission: "all"
+      CredentialName: "db_all_permissions"

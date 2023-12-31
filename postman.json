@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "f603f011-ee3a-4b64-b829-1bf3909e34ea",
+		"name": "project-work-tauber",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23374786"
+	},
+	"item": [
+		{
+			"name": "customers",
+			"item": [
+				{
+					"name": "Create Customer",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "bob123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "bob",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Customer Name\",\n  \"address\": {\n    \"street\": \"Street Name\",\n    \"city\": \"City Name\",\n    \"country\": \"Country Name\",\n    \"postalCode\": \"Postal Code\"\n  },\n  \"campingVan\": {\n    \"lengthMeters\": 5.5,\n    \"heightMeters\": 2.2,\n    \"widthMeters\": 2.0\n  },\n  \"bookings\": []\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/customers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Customers",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "alice123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "alice",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/customers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customer by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/customers/{customerID}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customers",
+								"{customerID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ID\": \"add-customer-id-here\",\n  \"Name\": \"Updated Customer Name\",\n  \"Address\": {\n    \"Street\": \"Updated Street Name\",\n    \"City\": \"Updated City Name\",\n    \"Country\": \"Updated Country Name\",\n    \"PostalCode\": \"Updated Postal Code\"\n  },\n  \"CampingVan\": {\n    \"LengthMeters\": 6.0,\n    \"HeightMeters\": 2.5,\n    \"WidthMeters\": 2.2\n  },\n  \"Bookings\": []\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/customers/{customerID}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customers",
+								"{customerID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/customers/{customerID}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customers",
+								"{customerID}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bookings",
+			"item": [
+				{
+					"name": "Create Booking",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "bob123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "bob",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customerId\": \"15865f9e-8ca4-438d-8299-713351669574\",\n  \"beginDate\": \"2023-12-31T08:00:00Z\",\n  \"endDate\": \"2023-12-31T16:00:00Z\",\n  \"priceEuros\": 100,\n  \"amountPersons\": 2,\n  \"remarks\": \"Booking Remarks\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/bookings",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bookings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/bookings",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Booking by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/bookings/{bookingID}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bookings",
+								"{bookingID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Booking",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ID\": \"add-booking-id-here\",\n  \"CustomerID\": \"customer-id-here\",\n  \"Customer\": {\n    \"ID\": \"customer-id-here\"\n  },\n  \"BeginDate\": \"2023-12-31T08:00:00Z\",\n  \"EndDate\": \"2023-12-31T16:00:00Z\",\n  \"PriceEuros\": 120,\n  \"AmountPersons\": 3,\n  \"Remarks\": \"Updated Booking Remarks\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/bookings/{bookingID}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bookings",
+								"{bookingID}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Booking",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/bookings/{bookingID}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bookings",
+								"{bookingID}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:8080/api/v1"
+		}
+	]
+}
